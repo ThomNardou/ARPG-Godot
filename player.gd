@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 35
 @onready var animation = $AnimatedSprite2D
-
+var global = Global
 func handleInpute():
 	var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = moveDirection * speed
@@ -29,6 +29,7 @@ func  updateAnimation():
 		animation.play(direction)
 
 func  _physics_process(delta):
+	global.globalPlayerXPosition = $
 	handleInpute()
 	move_and_slide()
 	updateAnimation()

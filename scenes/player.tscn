@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv6f0g3wsoso1"]
+[gd_scene load_steps=9 format=3 uid="uid://cv6f0g3wsoso1"]
 
 [ext_resource type="Texture2D" uid="uid://cdrn7ghum73iy" path="res://assets/Art/player/playerGrey_up1.png" id="1_3i7xo"]
 [ext_resource type="Script" path="res://player.gd" id="1_6knbl"]
@@ -40,6 +40,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdfys"]
+radius = 11.0454
+
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -61,3 +64,18 @@ frame_progress = 0.659985
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
+
+[node name="player_hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitBox"]
+shape = SubResource("CircleShape2D_mdfys")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+
+[node name="deal_attack_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="player_hitBox" to="." method="_on_player_hit_box_body_entered"]
+[connection signal="body_exited" from="player_hitBox" to="." method="_on_player_hit_box_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://is0qdppltgpi"]
+[gd_scene load_steps=8 format=3 uid="uid://is0qdppltgpi"]
 
 [ext_resource type="Texture2D" uid="uid://cm6pw2ot40svj" path="res://assets/Art/slime/enemySwimming_1.png" id="1_avul2"]
 [ext_resource type="Script" path="res://slime.gd" id="1_tmxe0"]
@@ -27,6 +27,9 @@ radius = 37.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ypkh"]
 size = Vector2(19, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6ve5"]
+size = Vector2(19, 9)
+
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_tmxe0")
 
@@ -47,5 +50,17 @@ shape = SubResource("CircleShape2D_waiu3")
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_8ypkh")
 
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_k6ve5")
+
+[node name="takeDamage" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="takeDamage" to="." method="_on_take_damage_timeout"]

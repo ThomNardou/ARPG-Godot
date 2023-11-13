@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://is0qdppltgpi"]
+
+[ext_resource type="Texture2D" uid="uid://cm6pw2ot40svj" path="res://assets/Art/slime/enemySwimming_1.png" id="1_avul2"]
+[ext_resource type="Script" path="res://slime.gd" id="1_tmxe0"]
+[ext_resource type="Texture2D" uid="uid://bd3ftefipeltb" path="res://assets/Art/slime/enemySwimming_2.png" id="2_5c4hm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41bm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_avul2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5c4hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_avul2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_waiu3"]
+radius = 37.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ypkh"]
+size = Vector2(19, 9)
+
+[node name="slime" type="CharacterBody2D"]
+script = ExtResource("1_tmxe0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_41bm1")
+animation = &"move"
+frame = 2
+frame_progress = 0.939803
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_waiu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_8ypkh")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

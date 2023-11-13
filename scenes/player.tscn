@@ -43,6 +43,7 @@ animations = [{
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 3
 script = ExtResource("1_6knbl")
 speed = 100
 

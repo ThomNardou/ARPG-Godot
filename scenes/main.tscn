@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bodo5ax1irad5"]
+[gd_scene load_steps=8 format=3 uid="uid://bodo5ax1irad5"]
 
 [ext_resource type="PackedScene" uid="uid://cv6f0g3wsoso1" path="res://scenes/player.tscn" id="1_c2x66"]
 [ext_resource type="Texture2D" uid="uid://bg1bixc7rjrjn" path="res://assets/Art/Tileset/TilesetFloor.png" id="2_j2wm1"]
 [ext_resource type="Texture2D" uid="uid://ct4a4fhj8kd8v" path="res://assets/Art/Tileset/TilesetNature.png" id="2_x23e0"]
+[ext_resource type="PackedScene" uid="uid://is0qdppltgpi" path="res://scenes/slime.tscn" id="4_bw5mi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pvcx"]
 texture = ExtResource("2_j2wm1")
@@ -2522,8 +2523,7 @@ texture = ExtResource("2_x23e0")
 6:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.5, 0, 0, 5, 1, 8, 13, 8, 16, 5, 12.5, 0)
 
 [sub_resource type="TileSet" id="TileSet_l0emr"]
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4pvcx")
 sources/1 = SubResource("TileSetAtlasSource_5xnih")
 
@@ -2553,5 +2553,7 @@ layer_2/tile_data = PackedInt32Array(589836, 1, 0, 262153, 1, 0, 393219, 1, 0, 6
 
 [node name="player" parent="." instance=ExtResource("1_c2x66")]
 position = Vector2(131, 126)
-collision_layer = 2
-collision_mask = 2
+collision_mask = 3
+
+[node name="slime" parent="." instance=ExtResource("4_bw5mi")]
+position = Vector2(151, 166)

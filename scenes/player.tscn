@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://4hh624ca651c" path="res://assets/Art/player/playerGrey_walk1.png" id="3_qoq0o"]
 [ext_resource type="Texture2D" uid="uid://swv2nsmy70pn" path="res://assets/Art/player/playerGrey_walk2.png" id="4_0mhhv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu6uu"]
+size = Vector2(10, 5)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nvxv0"]
 animations = [{
 "frames": [{
@@ -37,25 +40,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfu55"]
-radius = 20.0
-height = 64.0
-
-[node name="player" type="Area2D"]
+[node name="player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_6knbl")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_vu6uu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-light_mask = 513
 texture_filter = 1
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_nvxv0")
 animation = &"up"
 frame_progress = 0.659985
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_qfu55")
-
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0

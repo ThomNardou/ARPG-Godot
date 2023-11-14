@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://is0qdppltgpi"]
 
 [ext_resource type="Texture2D" uid="uid://cm6pw2ot40svj" path="res://assets/Art/slime/enemySwimming_1.png" id="1_avul2"]
-[ext_resource type="Script" path="res://slime.gd" id="1_tmxe0"]
+[ext_resource type="Script" path="res://script/slime.gd" id="1_btlu6"]
 [ext_resource type="Texture2D" uid="uid://bd3ftefipeltb" path="res://assets/Art/slime/enemySwimming_2.png" id="2_5c4hm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41bm1"]
@@ -28,7 +28,7 @@ radius = 37.0
 size = Vector2(17, 10.5)
 
 [node name="slime" type="CharacterBody2D"]
-script = ExtResource("1_tmxe0")
+script = ExtResource("1_btlu6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_41bm1")
@@ -49,9 +49,5 @@ visibility_layer = 3
 position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_8ypkh")
 
-[node name="takeDamage" type="Timer" parent="."]
-wait_time = 0.5
-
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="timeout" from="takeDamage" to="." method="_on_take_damage_timeout"]

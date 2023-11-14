@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cv6f0g3wsoso1"]
+[gd_scene load_steps=9 format=3 uid="uid://b6d54dh5njncq"]
 
 [ext_resource type="Texture2D" uid="uid://cdrn7ghum73iy" path="res://assets/Art/player/playerGrey_up1.png" id="1_3i7xo"]
-[ext_resource type="Script" path="res://player.gd" id="1_6knbl"]
+[ext_resource type="Script" path="res://script/player.gd" id="1_vjkn2"]
 [ext_resource type="Texture2D" uid="uid://clbrf55nn6k0u" path="res://assets/Art/player/playerGrey_up2.png" id="2_jj4jp"]
 [ext_resource type="Texture2D" uid="uid://4hh624ca651c" path="res://assets/Art/player/playerGrey_walk1.png" id="3_qoq0o"]
 [ext_resource type="Texture2D" uid="uid://swv2nsmy70pn" path="res://assets/Art/player/playerGrey_walk2.png" id="4_0mhhv"]
@@ -47,7 +47,7 @@ size = Vector2(12, 7)
 z_index = 1
 y_sort_enabled = true
 collision_layer = 3
-script = ExtResource("1_6knbl")
+script = ExtResource("1_vjkn2")
 speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

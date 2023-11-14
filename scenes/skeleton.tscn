@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://8fv42qmm272w"]
+
+[ext_resource type="Script" path="res://script/skeleton.gd" id="1_6vyf3"]
+[ext_resource type="Texture2D" uid="uid://dd27en2e2kty" path="res://assets/Art/skeleton/enemyWalking_1.png" id="1_nhcbr"]
+[ext_resource type="Texture2D" uid="uid://ds45cvmnn26ia" path="res://assets/Art/skeleton/enemyWalking_2.png" id="2_st4eh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwexy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nhcbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_st4eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nhcbr")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m8cko"]
+radius = 37.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjmr2"]
+size = Vector2(8, 16)
+
+[node name="skeleton" type="CharacterBody2D"]
+script = ExtResource("1_6vyf3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pwexy")
+animation = &"move"
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_m8cko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_kjmr2")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

@@ -2,14 +2,11 @@ extends CharacterBody2D
 
 var global = Global
 
-var speed = 40
+var speed = 60
 var player_chase = false
 var player = null
 
-var can_take_damage = true
-
 var health = 100
-var player_attack_zone = false
 
 func _physics_process(delta):
 	

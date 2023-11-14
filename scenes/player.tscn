@@ -40,8 +40,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mdfys"]
-radius = 11.0454
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swwuv"]
+size = Vector2(12, 7)
 
 [node name="player" type="CharacterBody2D"]
 z_index = 1
@@ -65,17 +65,14 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 
-[node name="player_hitBox" type="Area2D" parent="."]
+[node name="take_damage_box" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitBox"]
-shape = SubResource("CircleShape2D_mdfys")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="take_damage_box"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_swwuv")
 
-[node name="attack_cooldown" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="."]
 
-[node name="deal_attack_timer" type="Timer" parent="."]
-wait_time = 0.5
-
-[connection signal="body_entered" from="player_hitBox" to="." method="_on_player_hit_box_body_entered"]
-[connection signal="body_exited" from="player_hitBox" to="." method="_on_player_hit_box_body_exited"]
-[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="body_entered" from="take_damage_box" to="." method="_on_take_damage_box_body_entered"]
+[connection signal="body_exited" from="take_damage_box" to="." method="_on_take_damage_box_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

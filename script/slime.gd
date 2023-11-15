@@ -6,11 +6,16 @@ var speed = 60
 var player_chase = false
 var player = null
 
-var health = 100
+var health
 
 func _physics_process(delta):
-	
+	health = global.slime_life
 	$AnimatedSprite2D.play("move")
+	
+	if health <= 0:
+		health = 0
+		self.queue_free()
+	
 	if  player_chase:
 		position += (player.position - position) / speed
 		
@@ -32,6 +37,9 @@ func _on_detection_area_body_exited(body):
 		player_chase = false
 		
 func enemy():
+	pass
+	
+func slime():
 	pass
 
 

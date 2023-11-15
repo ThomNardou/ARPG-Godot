@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6d54dh5njncq"]
+[gd_scene load_steps=10 format=3 uid="uid://b6d54dh5njncq"]
 
 [ext_resource type="Texture2D" uid="uid://cdrn7ghum73iy" path="res://assets/Art/player/playerGrey_up1.png" id="1_3i7xo"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_vjkn2"]
@@ -43,6 +43,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swwuv"]
 size = Vector2(12, 7)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8li6"]
+radius = 14.0357
+
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -71,8 +74,15 @@ position_smoothing_speed = 20.0
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_swwuv")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="attack_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_zone"]
+shape = SubResource("CircleShape2D_j8li6")
+
+[node name="can_take_damage_timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="take_damage_box" to="." method="_on_take_damage_box_body_entered"]
 [connection signal="body_exited" from="take_damage_box" to="." method="_on_take_damage_box_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="attack_zone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="attack_zone" to="." method="_on_attack_zone_body_exited"]
+[connection signal="timeout" from="can_take_damage_timer" to="." method="_on_timer_timeout"]

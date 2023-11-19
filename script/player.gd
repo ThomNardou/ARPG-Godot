@@ -102,6 +102,5 @@ func _on_attack_zone_body_exited(body):
 func attack():
 	if can_attack == true:
 		if Input.is_action_just_pressed("attack"):
-			globale.slime_life -= 10
-			print("slime life : ", globale.slime_life)
+			globale.player_attck = true
 

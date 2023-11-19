@@ -9,7 +9,6 @@ var player = null
 var health
 
 func _ready():
-	health = global.skeleton_life
 	print(health)
 
 func _physics_process(delta):

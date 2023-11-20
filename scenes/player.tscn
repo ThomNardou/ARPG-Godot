@@ -58,7 +58,6 @@ shape = SubResource("RectangleShape2D_vu6uu")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nvxv0")
 animation = &"up"
-frame_progress = 0.659985
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)

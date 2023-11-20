@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3s5a4prl6h34"]
+
+[ext_resource type="Script" path="res://script/menu.gd" id="1_oqtun"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_oqtun")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 504.0
+offset_top = 288.0
+offset_right = 703.0
+offset_bottom = 334.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

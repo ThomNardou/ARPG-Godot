@@ -46,7 +46,7 @@ func  _physics_process(delta):
 	
 	if health <= 0:
 		health = 0
-		hide()
+		globale.is_dead = true
 
 
 func player():

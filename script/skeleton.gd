@@ -10,12 +10,11 @@ var can_take_damage = false
 
 var health = 100
 
-func _ready():
-	print(health)
-
 func _physics_process(delta):
+	
 	if Input.is_action_just_pressed("attack") and can_take_damage:
 		takeDamage()
+	
 	$Control/ProgressBar.value = health
 	if  player_chase:
 		$AnimatedSprite2D.play("move")
@@ -56,10 +55,8 @@ func takeDamage():
 func _on_can_be_attack_body_entered(body):
 	if body.has_method("player"):
 		can_take_damage = true
-		print(can_take_damage)
 
 
 func _on_can_be_attack_body_exited(body):
 	if body.has_method("player"):
 		can_take_damage = false
-		print(can_take_damage)

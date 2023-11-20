@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bodo5ax1irad5"]
+[gd_scene load_steps=11 format=3 uid="uid://bodo5ax1irad5"]
 
 [ext_resource type="PackedScene" uid="uid://b6d54dh5njncq" path="res://scenes/player.tscn" id="1_c2x66"]
+[ext_resource type="Script" path="res://script/main.gd" id="1_hv5rl"]
 [ext_resource type="Texture2D" uid="uid://bg1bixc7rjrjn" path="res://assets/Art/Tileset/TilesetFloor.png" id="2_j2wm1"]
 [ext_resource type="Texture2D" uid="uid://ct4a4fhj8kd8v" path="res://assets/Art/Tileset/TilesetNature.png" id="2_x23e0"]
 [ext_resource type="PackedScene" uid="uid://is0qdppltgpi" path="res://scenes/slime.tscn" id="4_bw5mi"]
@@ -2532,6 +2533,7 @@ sources/1 = SubResource("TileSetAtlasSource_5xnih")
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_hv5rl")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -2560,6 +2562,9 @@ collision_mask = 3
 
 [node name="skeleton" parent="." instance=ExtResource("5_j7wfm")]
 position = Vector2(463, 63)
+
+[node name="skeleton2" parent="." instance=ExtResource("5_j7wfm")]
+position = Vector2(256, 43)
 
 [node name="slime" parent="." instance=ExtResource("4_bw5mi")]
 position = Vector2(339, 111)

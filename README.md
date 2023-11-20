@@ -16,7 +16,7 @@ git clone git@github.com:ThomNardou/ARPG-Godot.git
 
 # Credit 
 
-<a href="https://github.com/ThomNardou">@ThomNardou - Creator</a>
+<a href="https://github.com/ThomNardou">@ThomNardou - Creator</a></br>
 <a href="https://github.com/TUTOUNITYFR">@TUTOUNITYFR - Assets</a>
 
 --- 

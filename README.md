@@ -28,4 +28,11 @@ git clone git@github.com:ThomNardou/ARPG-Godot.git
 - [X] Enemy track player
 - [X] Player can kill Enemy
 - [ ] Map
-- [ ] Menu
+- [x] Menu
+- [ ] Change Asset
+
+---
+
+# The Game Menu 
+
+<img src="https://github.com/ThomNardou/ARPG-Godot/blob/main/assets/other/gameMenuExemple.png"  alt="picture"/>

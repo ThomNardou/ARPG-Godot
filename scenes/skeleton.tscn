@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8fv42qmm272w"]
+[gd_scene load_steps=10 format=3 uid="uid://8fv42qmm272w"]
 
 [ext_resource type="Script" path="res://script/skeleton.gd" id="1_6vyf3"]
 [ext_resource type="Texture2D" uid="uid://dd27en2e2kty" path="res://assets/Art/skeleton/enemyWalking_1.png" id="1_nhcbr"]
@@ -27,6 +27,19 @@ radius = 37.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjmr2"]
 size = Vector2(8, 16)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_su6wp"]
+bg_color = Color(0, 1, 0.0745098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_rs8rb"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_su6wp")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u43x7"]
+radius = 24.1868
+
 [node name="skeleton" type="CharacterBody2D"]
 script = ExtResource("1_6vyf3")
 
@@ -46,5 +59,28 @@ light_mask = 3
 visibility_layer = 3
 shape = SubResource("RectangleShape2D_kjmr2")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 6.0
+offset_bottom = -9.0
+theme = SubResource("Theme_rs8rb")
+value = 100.0
+show_percentage = false
+
+[node name="canBeAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="canBeAttack"]
+shape = SubResource("CircleShape2D_u43x7")
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="canBeAttack" to="." method="_on_can_be_attack_body_entered"]
+[connection signal="body_exited" from="canBeAttack" to="." method="_on_can_be_attack_body_exited"]

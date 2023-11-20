@@ -2566,4 +2566,7 @@ position = Vector2(339, 111)
 collision_layer = 3
 collision_mask = 3
 
+[node name="slime2" parent="." instance=ExtResource("4_bw5mi")]
+position = Vector2(420, 151)
+
 [node name="display_life" parent="." instance=ExtResource("5_rnb0j")]

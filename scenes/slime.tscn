@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://is0qdppltgpi"]
+[gd_scene load_steps=10 format=3 uid="uid://is0qdppltgpi"]
 
 [ext_resource type="Texture2D" uid="uid://cm6pw2ot40svj" path="res://assets/Art/slime/enemySwimming_1.png" id="1_avul2"]
 [ext_resource type="Script" path="res://script/slime.gd" id="1_btlu6"]
@@ -27,8 +27,18 @@ radius = 37.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ypkh"]
 size = Vector2(17, 10.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_br331"]
-size = Vector2(36, 24)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f88lr"]
+bg_color = Color(0, 1, 0.0745098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_e8k2s"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_f88lr")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r7yr6"]
+radius = 24.1868
 
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_btlu6")
@@ -52,12 +62,29 @@ visibility_layer = 3
 position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_8ypkh")
 
-[node name="hit_box" type="Area2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
-shape = SubResource("RectangleShape2D_br331")
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 6.0
+offset_bottom = -8.0
+theme = SubResource("Theme_e8k2s")
+value = 100.0
+show_percentage = false
+
+[node name="canBeAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="canBeAttack"]
+shape = SubResource("CircleShape2D_r7yr6")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
-[connection signal="body_entered" from="hit_box" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_exited" from="hit_box" to="." method="_on_hit_box_body_exited"]
+[connection signal="body_entered" from="canBeAttack" to="." method="_on_can_be_attack_body_entered"]
+[connection signal="body_exited" from="canBeAttack" to="." method="_on_can_be_attack_body_exited"]
+[connection signal="input_event" from="canBeAttack" to="." method="_on_can_be_attack_input_event"]

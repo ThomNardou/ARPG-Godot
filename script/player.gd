@@ -43,9 +43,6 @@ func  _physics_process(delta):
 	move_and_slide()
 	updateAnimation()
 	boucle_damage()
-	attack()
-	
-	#print(can_attack)
 	
 	if health <= 0:
 		health = 0
@@ -75,7 +72,6 @@ func takeDamage():
 		else :
 			health -= 15
 			
-		print(health)
 		can_take_damage = false
 		$can_take_damage_timer.start()
 
@@ -98,9 +94,4 @@ func _on_attack_zone_body_exited(body):
 	if body.has_method("enemy"):
 		enemy = null
 		can_attack = false
-
-func attack():
-	if can_attack == true:
-		if Input.is_action_just_pressed("attack"):
-			globale.player_attck = true
 

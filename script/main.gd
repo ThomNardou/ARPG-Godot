@@ -9,4 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if global.is_dead:
+		queue_free()
+		get_tree().change_scene_to_file("res://scenes/main.tscn")

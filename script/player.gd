@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var globale = Global
+
 var health = 100
 var can_take_damage = false
 var entred : bool = false

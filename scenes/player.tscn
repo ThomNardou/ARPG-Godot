@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu6uu"]
 size = Vector2(10, 5)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nvxv0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtt7y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -17,9 +17,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_jj4jp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_3i7xo")
 }],
 "loop": true,
 "name": &"up",
@@ -31,9 +28,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_0mhhv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_qoq0o")
 }],
 "loop": true,
 "name": &"walk",
@@ -51,12 +45,13 @@ script = ExtResource("1_vjkn2")
 speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.5)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vu6uu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_nvxv0")
+position = Vector2(1, -5)
+sprite_frames = SubResource("SpriteFrames_vtt7y")
 animation = &"up"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -67,7 +62,7 @@ position_smoothing_speed = 20.0
 [node name="take_damage_box" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="take_damage_box"]
-position = Vector2(0, 5.5)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_swwuv")
 
 [node name="can_take_damage_timer" type="Timer" parent="."]

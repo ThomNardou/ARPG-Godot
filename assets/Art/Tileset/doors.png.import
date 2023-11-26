@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cac2xmadk1abs"
-path="res://.godot/imported/IDLE.png-9c1d0333574630aca4f1cdb25f2c63c3.ctex"
+uid="uid://c51jywmbjg37q"
+path="res://.godot/imported/doors.png-10cce7852598ea02417fd520f67dcdbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Art/player/IDLE.png"
-dest_files=["res://.godot/imported/IDLE.png-9c1d0333574630aca4f1cdb25f2c63c3.ctex"]
+source_file="res://assets/Art/Tileset/doors.png"
+dest_files=["res://.godot/imported/doors.png-10cce7852598ea02417fd520f67dcdbf.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deov6xtmu74ue"
-path="res://.godot/imported/RUN.png-628f4cb2a11c8f15a613421994f94463.ctex"
+uid="uid://ca121cybec5xl"
+path="res://.godot/imported/gentle trees 80x96 v02.png-45b39d65e998da168e11c7c3c0e735d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Art/player/RUN.png"
-dest_files=["res://.godot/imported/RUN.png-628f4cb2a11c8f15a613421994f94463.ctex"]
+source_file="res://assets/Art/Tileset/gentle trees 80x96 v02.png"
+dest_files=["res://.godot/imported/gentle trees 80x96 v02.png-45b39d65e998da168e11c7c3c0e735d7.ctex"]
 
 [params]
 

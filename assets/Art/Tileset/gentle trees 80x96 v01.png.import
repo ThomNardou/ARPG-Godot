@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmdaiw6c2v3qw"
-path="res://.godot/imported/BASIC ATTACK.png-284c98165c06c60ace328761ed17160f.ctex"
+uid="uid://cme8r22bktype"
+path="res://.godot/imported/gentle trees 80x96 v01.png-054b79c63e858a4275c8db337502b597.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Art/player/BASIC ATTACK.png"
-dest_files=["res://.godot/imported/BASIC ATTACK.png-284c98165c06c60ace328761ed17160f.ctex"]
+source_file="res://assets/Art/Tileset/gentle trees 80x96 v01.png"
+dest_files=["res://.godot/imported/gentle trees 80x96 v01.png-054b79c63e858a4275c8db337502b597.ctex"]
 
 [params]
 

@@ -48,10 +48,11 @@ func slime():
 	pass
 		
 func takeDamage():
-	health -= 10
+	health -= global.player_damage
 	print("slime life = ", health)
 	if health <= 0:
 		global.player_score += 5
+		global.slime_count_killed += 1
 		queue_free()
 
 func _on_can_be_attack_body_entered(body):

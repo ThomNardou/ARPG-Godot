@@ -32,7 +32,7 @@ theme_override_fonts/font = ExtResource("3_8cnwd")
 theme_override_font_sizes/font_size = 25
 text = "Start"
 
-[node name="LoadData" type="Button" parent="."]
+[node name="Stats" type="Button" parent="."]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -48,7 +48,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_8cnwd")
 theme_override_font_sizes/font_size = 25
-text = "Load"
+text = "Stats"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -74,5 +74,18 @@ vertical_alignment = 1
 stream = ExtResource("4_xsqco")
 autoplay = true
 
+[node name="Window" type="Window" parent="."]
+title = "Stats"
+initial_position = 1
+size = Vector2i(400, 300)
+visible = false
+
+[node name="Label" type="Label" parent="Window"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Skeleton killed : 0
+Slime Killed : 0"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="LoadData" to="." method="_on_load_data_pressed"]
+[connection signal="pressed" from="Stats" to="." method="_on_stats_pressed"]
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]

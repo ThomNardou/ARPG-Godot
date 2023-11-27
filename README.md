@@ -27,9 +27,9 @@ git clone git@github.com:ThomNardou/ARPG-Godot.git
 - [X] Player Movement 
 - [X] Enemy track player
 - [X] Player can kill Enemy
-- [ ] Map
+- [X] Map
 - [x] Menu
-- [ ] Change Asset
+- [X] Change Asset
 
 ---
 

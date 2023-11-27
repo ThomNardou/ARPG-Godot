@@ -7,6 +7,11 @@ func _ready():
 	global.is_dead = false
 
 
+func  _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		var file = FileAccess.open(global.save_path, FileAccess.WRITE)
+		file.store_var(global.player_score)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if global.is_dead:

@@ -49,6 +49,7 @@ func takeDamage():
 	health -= 10
 	print("skeleton life = ", health)
 	if health <= 0:
+		global.player_score += 10
 		queue_free()
 
 

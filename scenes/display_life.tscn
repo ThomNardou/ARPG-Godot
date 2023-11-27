@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2uestnhmb4xp"]
+[gd_scene load_steps=6 format=3 uid="uid://b2uestnhmb4xp"]
 
 [ext_resource type="Texture2D" uid="uid://dgtu48onyoqxy" path="res://assets/Art/other/pngegg.png" id="1_lkhjh"]
 [ext_resource type="Script" path="res://script/Control.gd" id="2_wv0xp"]
+[ext_resource type="FontFile" uid="uid://cyqt5mjl7cg5u" path="res://assets/font/Pixellari.ttf" id="3_4p4je"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x8vd"]
 bg_color = Color(0, 1, 0.0156863, 1)
@@ -39,3 +40,14 @@ theme = SubResource("Theme_nelub")
 theme_override_colors/font_color = Color(0, 1, 0.0156863, 1)
 step = 10.0
 value = 100.0
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 861.0
+offset_top = 40.0
+offset_right = 1118.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("3_4p4je")
+theme_override_font_sizes/font_size = 40
+text = "Score : 0"
+horizontal_alignment = 1
+vertical_alignment = 1

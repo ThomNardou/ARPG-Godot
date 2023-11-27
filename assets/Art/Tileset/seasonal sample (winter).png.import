@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://swv2nsmy70pn"
-path="res://.godot/imported/playerGrey_walk2.png-6206fc50ebff06adee5488f8f357f0e2.ctex"
+uid="uid://cms8ugjg6rcnm"
+path="res://.godot/imported/seasonal sample (winter).png-ddd4d6fd87dcd81969b68d18a8c8c4a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Art/player/playerGrey_walk2.png"
-dest_files=["res://.godot/imported/playerGrey_walk2.png-6206fc50ebff06adee5488f8f357f0e2.ctex"]
+source_file="res://assets/Art/Tileset/seasonal sample (winter).png"
+dest_files=["res://.godot/imported/seasonal sample (winter).png-ddd4d6fd87dcd81969b68d18a8c8c4a1.ctex"]
 
 [params]
 

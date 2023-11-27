@@ -1,57 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3s5a4prl6h34"]
+[gd_scene load_steps=5 format=3 uid="uid://c3s5a4prl6h34"]
 
 [ext_resource type="Script" path="res://script/menu.gd" id="1_oqtun"]
 [ext_resource type="Texture2D" uid="uid://bofg3ydic11ec" path="res://assets/background/image/background.png" id="2_lwtbu"]
 [ext_resource type="FontFile" uid="uid://cyqt5mjl7cg5u" path="res://assets/font/Pixellari.ttf" id="3_8cnwd"]
 [ext_resource type="AudioStream" uid="uid://cu7ncqaggiif8" path="res://assets/background/Music/backgroundMusic.mp3" id="4_xsqco"]
-[ext_resource type="Texture2D" uid="uid://4hh624ca651c" path="res://assets/Art/player/playerGrey_walk1.png" id="5_ntlkt"]
-[ext_resource type="Texture2D" uid="uid://swv2nsmy70pn" path="res://assets/Art/player/playerGrey_walk2.png" id="6_vujdr"]
-[ext_resource type="Texture2D" uid="uid://dd27en2e2kty" path="res://assets/Art/skeleton/enemyWalking_1.png" id="7_4226l"]
-[ext_resource type="Texture2D" uid="uid://ds45cvmnn26ia" path="res://assets/Art/skeleton/enemyWalking_2.png" id="8_v8ybw"]
-[ext_resource type="Texture2D" uid="uid://cm6pw2ot40svj" path="res://assets/Art/slime/enemySwimming_1.png" id="9_b8wxx"]
-[ext_resource type="Texture2D" uid="uid://bd3ftefipeltb" path="res://assets/Art/slime/enemySwimming_2.png" id="10_tpbqu"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bknih"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_ntlkt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_vujdr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y7giy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_4226l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_v8ybw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_52q0b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_b8wxx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_tpbqu")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_oqtun")
@@ -103,25 +55,5 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_xsqco")
 autoplay = true
-
-[node name="player" type="AnimatedSprite2D" parent="."]
-position = Vector2(199, 541)
-scale = Vector2(7, 7)
-sprite_frames = SubResource("SpriteFrames_bknih")
-frame_progress = 0.688242
-
-[node name="slime" type="AnimatedSprite2D" parent="."]
-position = Vector2(881, 554)
-scale = Vector2(8, 8)
-sprite_frames = SubResource("SpriteFrames_y7giy")
-frame_progress = 0.4763
-flip_h = true
-
-[node name="skeleton" type="AnimatedSprite2D" parent="."]
-position = Vector2(829, 592)
-scale = Vector2(8, 8)
-sprite_frames = SubResource("SpriteFrames_52q0b")
-frame_progress = 0.252391
-flip_h = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

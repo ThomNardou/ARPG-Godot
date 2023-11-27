@@ -1,38 +1,84 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6d54dh5njncq"]
+[gd_scene load_steps=10 format=3 uid="uid://b6d54dh5njncq"]
 
-[ext_resource type="Texture2D" uid="uid://cdrn7ghum73iy" path="res://assets/Art/player/playerGrey_up1.png" id="1_3i7xo"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_vjkn2"]
-[ext_resource type="Texture2D" uid="uid://clbrf55nn6k0u" path="res://assets/Art/player/playerGrey_up2.png" id="2_jj4jp"]
-[ext_resource type="Texture2D" uid="uid://4hh624ca651c" path="res://assets/Art/player/playerGrey_walk1.png" id="3_qoq0o"]
-[ext_resource type="Texture2D" uid="uid://swv2nsmy70pn" path="res://assets/Art/player/playerGrey_walk2.png" id="4_0mhhv"]
+[ext_resource type="Texture2D" uid="uid://33awfs7n44s3" path="res://assets/Art/player/player.png" id="2_jn26n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu6uu"]
 size = Vector2(10, 5)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vtt7y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_3i7xo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_jj4jp")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_qoq0o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_0mhhv")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_5ionj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oiadd"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00024012, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_kb8lg"]
+resource_name = "up"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45]
+}
+
+[sub_resource type="Animation" id="Animation_7svab"]
+resource_name = "down"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36, 37]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_443ut"]
+_data = {
+"RESET": SubResource("Animation_5ionj"),
+"down": SubResource("Animation_7svab"),
+"up": SubResource("Animation_kb8lg"),
+"walk": SubResource("Animation_oiadd")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swwuv"]
 size = Vector2(12, 7)
@@ -48,11 +94,19 @@ speed = 100
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vu6uu")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -5)
-sprite_frames = SubResource("SpriteFrames_vtt7y")
-animation = &"up"
+position = Vector2(2, -7)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("2_jn26n")
+hframes = 8
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_443ut")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)

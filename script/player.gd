@@ -10,7 +10,7 @@ var can_attack = false
 var enemy 
 
 @export var speed = 35
-@onready var animation = $AnimatedSprite2D
+@onready var animation = $Sprite2D/AnimationPlayer
 
 func _process(delta):
 	globale.play_life = health
@@ -24,7 +24,7 @@ func  updateAnimation():
 		animation.stop()	
 	
 	else :
-		var direction = "up"
+		var direction = "down"
 	
 		if velocity.x < 0: 
 			direction = "walk"
@@ -33,8 +33,10 @@ func  updateAnimation():
 		elif velocity.y < 0:
 			direction = "up"
 			
-		if velocity.x != 0:
-			$AnimatedSprite2D.flip_h = velocity.x < 0
+		if Input.is_action_pressed("ui_right"):
+			$Sprite2D.flip_h = false
+		elif Input.is_action_pressed("ui_left"):
+			$Sprite2D.flip_h = true
 			
 		animation.play(direction)
 		
@@ -70,7 +72,7 @@ func takeDamage():
 	if can_take_damage:
 		if enemy.has_method("slime"):
 			health -= 10
-		else :
+		else:
 			health -= 15
 			
 		can_take_damage = false

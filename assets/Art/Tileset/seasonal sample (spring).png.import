@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdrn7ghum73iy"
-path="res://.godot/imported/playerGrey_up1.png-b37fab57fa072f46cb836b1b3a63f8d5.ctex"
+uid="uid://cillca8tgylqe"
+path="res://.godot/imported/seasonal sample (spring).png-89fb19b488dc653f7baa3ab32533c556.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Art/player/playerGrey_up1.png"
-dest_files=["res://.godot/imported/playerGrey_up1.png-b37fab57fa072f46cb836b1b3a63f8d5.ctex"]
+source_file="res://assets/Art/Tileset/seasonal sample (spring).png"
+dest_files=["res://.godot/imported/seasonal sample (spring).png-89fb19b488dc653f7baa3ab32533c556.ctex"]
 
 [params]
 

@@ -12,6 +12,16 @@ var enemy
 @export var speed = 35
 @onready var animation = $Sprite2D/AnimationPlayer
 
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		var file = FileAccess.open(globale.player_save_path, FileAccess.WRITE)
+		file.store_var(self.position)
+		
+func _ready():
+	var file = FileAccess.open(globale.player_save_path, FileAccess.READ)
+	self.position = file.get_var()
+
+
 func _process(delta):
 	globale.play_life = health
 

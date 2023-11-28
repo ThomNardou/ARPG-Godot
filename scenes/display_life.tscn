@@ -42,6 +42,7 @@ step = 10.0
 value = 100.0
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 861.0
 offset_top = 40.0
 offset_right = 1118.0

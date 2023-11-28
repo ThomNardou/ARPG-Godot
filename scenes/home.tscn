@@ -3895,4 +3895,3 @@ collision_mask = 3
 speed = 110
 
 [node name="display_life" parent="." instance=ExtResource("8_i6s3r")]
-visible = false

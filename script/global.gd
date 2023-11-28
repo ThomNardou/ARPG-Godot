@@ -15,3 +15,7 @@ var player_score = 0
 
 var slime_count_killed = 0
 var skeleton_count_killed = 0
+
+var is_in_home = false
+
+var player_position

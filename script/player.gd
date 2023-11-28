@@ -12,14 +12,20 @@ var enemy
 @export var speed = 35
 @onready var animation = $Sprite2D/AnimationPlayer
 
+@export var start_position = 150
+
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		var file = FileAccess.open(globale.player_save_path, FileAccess.WRITE)
 		file.store_var(self.position)
 		
 func _ready():
-	var file = FileAccess.open(globale.player_save_path, FileAccess.READ)
-	self.position = file.get_var()
+	if FileAccess.file_exists(globale.player_save_path) and globale.is_in_home == false:
+		var file = FileAccess.open(globale.player_save_path, FileAccess.READ)
+		self.position = file.get_var()
+	else:
+		position.x = start_position
+		position.y = start_position
 
 
 func _process(delta):
@@ -56,6 +62,8 @@ func  _physics_process(delta):
 	move_and_slide()
 	updateAnimation()
 	boucle_damage()
+	
+	globale.player_position = self.position
 	
 	if health <= 0:
 		health = 0

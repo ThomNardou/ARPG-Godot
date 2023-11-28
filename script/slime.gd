@@ -49,7 +49,6 @@ func slime():
 		
 func takeDamage():
 	health -= global.player_damage
-	print("slime life = ", health)
 	if health <= 0:
 		global.player_score += 5
 		global.slime_count_killed += 1

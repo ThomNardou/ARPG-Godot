@@ -2,6 +2,9 @@ extends Node2D
 
 var global = Global
 
+func _ready():
+	$AudioStreamPlayer2D.play()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("test2"):

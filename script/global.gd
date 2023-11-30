@@ -6,6 +6,7 @@ var save_path = "res://Save/score.save"
 var slime_save_path = "res://Save/slime.save"
 var skeleton_save_path = "res://Save/skelton.save"
 var player_save_path = "res://Save/player.save"
+var life_save_path = "res://Save/life.save"
 
 var play_life = 100
 var is_dead = false

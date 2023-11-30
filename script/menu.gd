@@ -22,8 +22,6 @@ func loadData():
 		file = FileAccess.open(global.skeleton_save_path, FileAccess.READ)
 		global.skeleton_count_killed = file.get_var()
 		
-		print(str(global.skeleton_count_killed) + " et " + str(global.slime_count_killed))
-		
 	else:
 		print("pas trouvé")
 		global.player_score = 0

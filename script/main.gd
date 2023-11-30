@@ -6,6 +6,7 @@ var file
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	global.is_dead = false
+	$AudioStreamPlayer2D.play()
 
 
 func  _notification(what):
@@ -18,6 +19,7 @@ func  _notification(what):
 		
 		file = FileAccess.open(global.skeleton_save_path, FileAccess.WRITE)
 		file.store_var(global.skeleton_count_killed)
+		
 		print("Tout a été sauvegardé")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,8 +27,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("test"):
 		global.is_in_home = true
 		
-		var file = FileAccess.open(global.player_save_path, FileAccess.WRITE)
+		file = FileAccess.open(global.player_save_path, FileAccess.WRITE)
 		file.store_var(global.player_position)
+		
 		
 		get_tree().change_scene_to_file("res://scenes/home.tscn")
 		queue_free()

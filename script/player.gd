@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var globale = Global
 
-var health = 100
+var health = 0
 var can_take_damage = false
 var entred : bool = false
 
@@ -20,7 +20,9 @@ func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		var file = FileAccess.open(globale.player_save_path, FileAccess.WRITE)
 		file.store_var(self.position)
-	
+		
+		file = FileAccess.open(globale.life_save_path, FileAccess.WRITE)
+		file.store_64(health)
 		
 func _ready():
 	if FileAccess.file_exists(globale.player_save_path) and globale.is_in_home == false:
@@ -29,13 +31,15 @@ func _ready():
 	else:
 		position.x = start_position
 		position.y = start_position
-
 		
-	print(health)
+	if FileAccess.file_exists(globale.life_save_path) and !globale.is_dead:
+		file = FileAccess.open(globale.life_save_path, FileAccess.READ)
+		health = file.get_64()
+	else:
+		health = 100
 	
+	globale.change_scene = false
 	
-
-
 func _process(delta):
 	globale.play_life = health
 
@@ -63,7 +67,6 @@ func  updateAnimation():
 			$Sprite2D.flip_h = true
 			
 		animation.play(direction)
-		
 
 func  _physics_process(delta):
 	handleInpute()
@@ -73,10 +76,11 @@ func  _physics_process(delta):
 	
 	globale.player_position = self.position
 	
+	print(health)
+	
 	if health <= 0:
 		health = 0
 		globale.is_dead = true
-
 
 func player():
 	pass
@@ -86,7 +90,6 @@ func _on_take_damage_box_body_entered(body):
 		enemy = body
 		can_take_damage = true
 		entred = true
-
 
 func _on_take_damage_box_body_exited(body):
 	if  body.has_method("enemy"):
@@ -101,9 +104,11 @@ func takeDamage():
 		else:
 			health -= 15
 			
+		var file = FileAccess.open(globale.life_save_path, FileAccess.WRITE)
+		file.store_64(health)
+			
 		can_take_damage = false
 		$can_take_damage_timer.start()
-
 
 func _on_timer_timeout():
 	can_take_damage = true
@@ -112,15 +117,12 @@ func boucle_damage():
 	while entred && can_take_damage:
 		takeDamage()
 
-
 func _on_attack_zone_body_entered(body):
 	if body.has_method("enemy"):
 		enemy = body
 		can_attack = true
 
-
 func _on_attack_zone_body_exited(body):
 	if body.has_method("enemy"):
 		enemy = null
 		can_attack = false
-

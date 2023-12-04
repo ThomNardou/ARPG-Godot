@@ -7,6 +7,7 @@ var file
 func _ready():
 	global.is_dead = false
 	$AudioStreamPlayer2D.play()
+	#$player/Camera2D.position = $player.position
 
 
 func  _notification(what):
@@ -26,10 +27,10 @@ func  _notification(what):
 func _process(delta):
 	if Input.is_action_just_pressed("test"):
 		global.is_in_home = true
-		
 		file = FileAccess.open(global.player_save_path, FileAccess.WRITE)
 		file.store_var(global.player_position)
 		
+		global.change_scene = true
 		
 		get_tree().change_scene_to_file("res://scenes/home.tscn")
 		queue_free()

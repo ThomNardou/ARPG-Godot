@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://script/main.gd" id="1_hv5rl"]
 [ext_resource type="Texture2D" uid="uid://gqa6vymi0s5h" path="res://assets/Art/Tileset/seasonal sample (autumn).png" id="3_w5kgd"]
 [ext_resource type="Texture2D" uid="uid://jyxmoqnma6vm" path="res://assets/Art/Tileset/gentle forest v02.png" id="4_7lh57"]
-[ext_resource type="PackedScene" uid="uid://is0qdppltgpi" path="res://scenes/slime.tscn" id="4_bw5mi"]
 [ext_resource type="Texture2D" uid="uid://cillca8tgylqe" path="res://assets/Art/Tileset/seasonal sample (spring).png" id="4_yc157"]
 [ext_resource type="Texture2D" uid="uid://cms8ugjg6rcnm" path="res://assets/Art/Tileset/seasonal sample (winter).png" id="5_iourr"]
-[ext_resource type="PackedScene" uid="uid://8fv42qmm272w" path="res://scenes/skeleton.tscn" id="5_j7wfm"]
 [ext_resource type="PackedScene" uid="uid://b2uestnhmb4xp" path="res://scenes/display_life.tscn" id="5_rnb0j"]
 [ext_resource type="Texture2D" uid="uid://covutd37xfuue" path="res://assets/Art/Tileset/tiles_garden.png" id="6_vroik"]
+[ext_resource type="PackedScene" uid="uid://is0qdppltgpi" path="res://scenes/slime.tscn" id="8_ntwes"]
+[ext_resource type="PackedScene" uid="uid://8fv42qmm272w" path="res://scenes/skeleton.tscn" id="9_anwbb"]
 [ext_resource type="AudioStream" uid="uid://cu7ncqaggiif8" path="res://assets/background/Music/backgroundMusic.mp3" id="11_ax4je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhw1d"]
@@ -3897,27 +3897,25 @@ position = Vector2(150, 150)
 collision_mask = 3
 speed = 110
 
-[node name="skeleton" parent="." instance=ExtResource("5_j7wfm")]
-position = Vector2(463, 63)
+[node name="slime" parent="." instance=ExtResource("8_ntwes")]
+position = Vector2(303, 301)
 
-[node name="skeleton2" parent="." instance=ExtResource("5_j7wfm")]
-position = Vector2(256, 43)
+[node name="slime2" parent="." instance=ExtResource("8_ntwes")]
+position = Vector2(362, 134)
 
-[node name="slime" parent="." instance=ExtResource("4_bw5mi")]
-position = Vector2(339, 111)
-collision_layer = 3
-collision_mask = 3
+[node name="slime3" parent="." instance=ExtResource("8_ntwes")]
+position = Vector2(227, 159)
 
-[node name="slime2" parent="." instance=ExtResource("4_bw5mi")]
-position = Vector2(420, 151)
+[node name="skeleton" parent="." instance=ExtResource("9_anwbb")]
+position = Vector2(312, 214)
 
-[node name="skeleton3" parent="." instance=ExtResource("5_j7wfm")]
-position = Vector2(251, 177)
+[node name="skeleton2" parent="." instance=ExtResource("9_anwbb")]
+position = Vector2(371, 40)
+
+[node name="skeleton3" parent="." instance=ExtResource("9_anwbb")]
+position = Vector2(248, 63)
 
 [node name="display_life" parent="." instance=ExtResource("5_rnb0j")]
-
-[node name="slime3" parent="." instance=ExtResource("4_bw5mi")]
-position = Vector2(91, 161)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ax4je")

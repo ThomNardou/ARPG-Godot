@@ -3,6 +3,7 @@ extends Node2D
 var global = Global
 var file
 
+
 func _ready():
 	loadData()
 	$Window/Label.text = "Skeleton killed : " + str(global.skeleton_count_killed) + "\n" + "Slime killed : " + str(global.slime_count_killed)
@@ -28,12 +29,8 @@ func loadData():
 		global.skeleton_count_killed = 0
 		global.slime_count_killed = 0
 
-
 func _on_stats_pressed():
 	$Window.show()
-	
-
-
 
 func _on_window_close_requested():
 	$Window.hide()

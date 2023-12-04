@@ -9,5 +9,10 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("test2"):
 		global.is_in_home = false
+		#global.change_scene = true
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
 		queue_free()
+		
+	if global.is_dead:
+		queue_free()
+		get_tree().change_scene_to_file("res://scenes/main.tscn")

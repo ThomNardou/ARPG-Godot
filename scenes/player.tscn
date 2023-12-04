@@ -111,7 +111,7 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-position_smoothing_speed = 60.0
+position_smoothing_speed = 72.075
 
 [node name="take_damage_box" type="Area2D" parent="."]
 

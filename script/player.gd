@@ -18,8 +18,6 @@ var file
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		var file = FileAccess.open(globale.player_save_path, FileAccess.WRITE)
-		file.store_var(self.position)
 		
 		file = FileAccess.open(globale.life_save_path, FileAccess.WRITE)
 		file.store_64(health)
@@ -37,8 +35,6 @@ func _ready():
 		health = file.get_64()
 	else:
 		health = 100
-	
-	globale.change_scene = false
 	
 func _process(delta):
 	globale.play_life = health

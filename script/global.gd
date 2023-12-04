@@ -12,8 +12,6 @@ var play_life = 100
 var is_dead = false
 var player_damage = 10
 
-var change_scene = false
-
 var player_score = 0
 
 var slime_count_killed = 0

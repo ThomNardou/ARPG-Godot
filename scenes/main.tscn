@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bodo5ax1irad5"]
+[gd_scene load_steps=19 format=3 uid="uid://bodo5ax1irad5"]
 
 [ext_resource type="PackedScene" uid="uid://b6d54dh5njncq" path="res://scenes/player.tscn" id="1_c2x66"]
 [ext_resource type="Script" path="res://script/main.gd" id="1_hv5rl"]
@@ -3867,6 +3867,9 @@ sources/5 = SubResource("TileSetAtlasSource_jhfuk")
 sources/6 = SubResource("TileSetAtlasSource_i71cm")
 sources/7 = SubResource("TileSetAtlasSource_u7vuo")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m1n5"]
+size = Vector2(18, 7)
+
 [node name="main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_hv5rl")
@@ -3920,3 +3923,12 @@ position = Vector2(248, 63)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ax4je")
 autoplay = true
+
+[node name="collisions" type="Area2D" parent="."]
+position = Vector2(1008, 597)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions"]
+position = Vector2(7, -1.5)
+shape = SubResource("RectangleShape2D_5m1n5")
+
+[connection signal="body_entered" from="collisions" to="." method="_on_collisions_body_entered"]

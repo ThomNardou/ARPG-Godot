@@ -61,3 +61,5 @@ func _on_can_be_attack_body_entered(body):
 func _on_can_be_attack_body_exited(body):
 	if body.has_method("player"):
 		can_take_damage = false
+		
+

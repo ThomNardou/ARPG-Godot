@@ -13,7 +13,6 @@ func _on_button_pressed():
 
 func loadData():
 	if FileAccess.file_exists(global.save_path):
-		print("trouvé")
 		file = FileAccess.open(global.save_path, FileAccess.READ)
 		global.player_score = file.get_var()
 		
@@ -24,7 +23,6 @@ func loadData():
 		global.skeleton_count_killed = file.get_var()
 		
 	else:
-		print("pas trouvé")
 		global.player_score = 0
 		global.skeleton_count_killed = 0
 		global.slime_count_killed = 0

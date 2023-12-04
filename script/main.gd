@@ -20,8 +20,6 @@ func  _notification(what):
 		
 		file = FileAccess.open(global.skeleton_save_path, FileAccess.WRITE)
 		file.store_var(global.skeleton_count_killed)
-		
-		print("Tout a été sauvegardé")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

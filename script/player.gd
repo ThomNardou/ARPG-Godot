@@ -76,8 +76,6 @@ func  _physics_process(delta):
 	
 	globale.player_position = self.position
 	
-	print(health)
-	
 	if health <= 0:
 		health = 0
 		globale.is_dead = true

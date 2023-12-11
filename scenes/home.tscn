@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cecatd08805r0"]
+[gd_scene load_steps=19 format=3 uid="uid://cecatd08805r0"]
 
 [ext_resource type="Script" path="res://script/home.gd" id="1_k0jn0"]
 [ext_resource type="Texture2D" uid="uid://jyxmoqnma6vm" path="res://assets/Art/Tileset/gentle forest v02.png" id="2_ffyn7"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b6d54dh5njncq" path="res://scenes/player.tscn" id="7_pfyd2"]
 [ext_resource type="PackedScene" uid="uid://b2uestnhmb4xp" path="res://scenes/display_life.tscn" id="8_i6s3r"]
 [ext_resource type="AudioStream" uid="uid://dinfs2vtmlife" path="res://assets/background/Music/Manor.mp3" id="9_q0ou7"]
-[ext_resource type="PackedScene" uid="uid://is0qdppltgpi" path="res://scenes/slime.tscn" id="10_2ls6g"]
+[ext_resource type="PackedScene" uid="uid://e2u8f0msk6tu" path="res://scenes/slimeBoss.tscn" id="10_8v2sy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhw1d"]
 texture = ExtResource("2_ffyn7")
@@ -3841,6 +3841,9 @@ sources/7 = SubResource("TileSetAtlasSource_u7vuo")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_211v8"]
 size = Vector2(240, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw8sm"]
+size = Vector2(16, 239)
+
 [node name="home" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_k0jn0")
@@ -3857,15 +3860,22 @@ layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
-layer_1/z_index = 2
-layer_1/tile_data = PackedInt32Array(131077, 524295, 19, 196613, 524295, 20, 262149, 524295, 21, 131078, 589831, 19, 196614, 589831, 20, 262150, 589831, 21, 131079, 655367, 19, 196615, 655367, 20, 262151, 655367, 21, 131081, 524295, 19, 196617, 524295, 20, 262153, 524295, 21, 131082, 589831, 19, 196618, 589831, 20, 262154, 589831, 21, 131083, 655367, 19, 196619, 655367, 20, 262155, 655367, 21, 131085, 524295, 19, 196621, 524295, 20, 262157, 524295, 21, 131086, 589831, 19, 196622, 589831, 20, 262158, 589831, 21, 131087, 655367, 19, 196623, 655367, 20, 262159, 655367, 21, 131089, 524295, 19, 196625, 524295, 20, 262161, 524295, 21, 131090, 589831, 19, 196626, 589831, 20, 262162, 589831, 21, 131091, 655367, 19, 196627, 655367, 20, 262163, 655367, 21, 983046, 786439, 22, 983050, 786439, 22, 983054, 786439, 22, 983058, 786439, 22)
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(131077, 524295, 19, 196613, 524295, 20, 262149, 524295, 21, 131078, 589831, 19, 196614, 589831, 20, 262150, 589831, 21, 131079, 655367, 19, 196615, 655367, 20, 262151, 655367, 21, 131081, 524295, 19, 196617, 524295, 20, 262153, 524295, 21, 131082, 589831, 19, 196618, 589831, 20, 262154, 589831, 21, 131083, 655367, 19, 196619, 655367, 20, 262155, 655367, 21, 131085, 524295, 19, 196621, 524295, 20, 262157, 524295, 21, 131086, 589831, 19, 196622, 589831, 20, 262158, 589831, 21, 131087, 655367, 19, 196623, 655367, 20, 262159, 655367, 21, 131089, 524295, 19, 196625, 524295, 20, 262161, 524295, 21, 131090, 589831, 19, 196626, 589831, 20, 262162, 589831, 21, 131091, 655367, 19, 196627, 655367, 20, 262163, 655367, 21)
 layer_2/name = "Pilier"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
-layer_2/z_index = 2
-layer_2/tile_data = PackedInt32Array(196624, 393223, 19, 196620, 393223, 19, 196616, 393223, 19, 983048, 393223, 19, 983052, 393223, 19, 983056, 393223, 19)
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(196624, 393223, 19, 196620, 393223, 19, 196616, 393223, 19)
+layer_3/name = "front"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 2
+layer_3/tile_data = PackedInt32Array(983046, 786439, 22, 983050, 786439, 22, 983054, 786439, 22, 983058, 786439, 22, 917512, 851975, 20, 983048, 720903, 21, 1048584, 720903, 21, 917516, 720903, 21, 983052, 851975, 21, 1048588, 851975, 21, 917520, 851975, 21, 983056, 720903, 21, 1048592, 851975, 20)
 
 [node name="player" parent="." instance=ExtResource("7_pfyd2")]
 position = Vector2(150, 150)
@@ -3878,8 +3888,8 @@ speed = 110
 stream = ExtResource("9_q0ou7")
 autoplay = true
 
-[node name="slime" parent="." instance=ExtResource("10_2ls6g")]
-position = Vector2(230, 157)
+[node name="slimeBoss" parent="." instance=ExtResource("10_8v2sy")]
+position = Vector2(238, 143)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(80, 80)
@@ -3891,3 +3901,11 @@ shape = SubResource("RectangleShape2D_211v8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(120, -10)
 shape = SubResource("RectangleShape2D_211v8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(248, 71)
+shape = SubResource("RectangleShape2D_xw8sm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-8, 71.5)
+shape = SubResource("RectangleShape2D_xw8sm")

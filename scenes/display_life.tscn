@@ -39,7 +39,6 @@ offset_bottom = 94.0
 theme = SubResource("Theme_nelub")
 theme_override_colors/font_color = Color(0, 1, 0.0156863, 1)
 step = 10.0
-value = 100.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0

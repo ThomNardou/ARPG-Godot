@@ -95,8 +95,10 @@ func takeDamage():
 	if can_take_damage:
 		if enemy.has_method("slime"):
 			health -= 10
-		else:
+		elif  enemy.has_method("skeleton"):
 			health -= 15
+		else:
+			health -= 50
 			
 		var file = FileAccess.open(globale.life_save_path, FileAccess.WRITE)
 		file.store_64(health)

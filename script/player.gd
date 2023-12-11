@@ -29,12 +29,13 @@ func _ready():
 	else:
 		position.x = start_position
 		position.y = start_position
-		
+
 	if FileAccess.file_exists(globale.life_save_path) and !globale.is_dead:
 		file = FileAccess.open(globale.life_save_path, FileAccess.READ)
 		health = file.get_64()
 	else:
 		health = 100
+
 	
 func _process(delta):
 	globale.play_life = health
@@ -74,6 +75,7 @@ func  _physics_process(delta):
 	
 	if health <= 0:
 		health = 0
+		DirAccess.remove_absolute(globale.life_save_path)
 		globale.is_dead = true
 
 func player():
@@ -98,7 +100,7 @@ func takeDamage():
 		elif  enemy.has_method("skeleton"):
 			health -= 15
 		else:
-			health -= 50
+			health -= 30
 			
 		var file = FileAccess.open(globale.life_save_path, FileAccess.WRITE)
 		file.store_64(health)

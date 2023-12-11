@@ -43,7 +43,7 @@ func enemy():
 	pass
 
 func skeleton():
-	pass
+	pass   
 	
 func takeDamage():
 	health -= global.player_damage
